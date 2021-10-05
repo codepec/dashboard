@@ -1,7 +1,5 @@
-# dashboard
+# firewaternature
+another rock scissors paper game
 
-- charts
-- tables
-- and some text
 
-https://codepec.github.io/dashboard/
+https://codepec.github.io/firewaternature/

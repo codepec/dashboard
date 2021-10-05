@@ -79,14 +79,14 @@ p{
 }
 
 table{
-    width: 100%;
+    width: 600px;
     table-layout: fixed;
     border: solid 1px black;
 }
 
 td{
-    width: 100%;
-    text-align: center;
+    
+    text-align: left;
     border: solid 1px black;
 }
 
