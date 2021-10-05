@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <title>dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+ 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="images/icons/icon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/icons/icon-128x128.png" sizes="128x128">
+    
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+
+    <body>
+
+     
+
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+      </ul> 
+
+
+
+      <div class="middle">
+        <h1>Dashboard</h1> 
+      </div>
+
+      <div class="middle">
+      <p>some charts and tables</p>
+      </div>
+
+      
+      <div class="middle">
+        <div class="box">
+          <table>
+            <tr>
+              <td>Firstname:</td>
+              <td id="firstName">Zerkan</td>
+              <td>Lastname:</td>
+              <td id="lastName">Odrovski</td>
+              
+            </tr>
+            <tr>
+              <td>Date of Birth:</td>
+              <td id="dateOfBirth">11.11.1111</td>
+              <td>Address:</td>
+              <td id="address">97 Taneytown Road, Gettysburg, PA 17325-2804</td>
+            </tr>
+            <tr>
+              <td>E-Mail:</td>
+              <td id="eMail">bellair@bellair.com</td>
+              <td>Phone:</td>
+              <td id="phone">045 / 152 55 15</td>
+            </tr>
+            <tr>
+              <td><button class="bigButton" id = "declinebutton">Decline</button></td>
+              <td></td>          
+              <td></td>
+              <td><button class="bigButton" id = "acceptbutton">Accept</button></td>
+            </tr>
+          </table>
+
+      
+        </div>
+      </div>
+
+      <div class="middle">
+        <div class="box">
+
+          <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+      
+        </div>
+      </div>
+
+      <div class="middle">
+       <div class="box">
+        <table>
+          <tr>
+            <td class="monitorText">Player</td>
+            <td></td>
+            <td class="monitorText">Computer</td>
+          </tr>
+          <tr>
+            <td id = "scorePlayer" class="monitorSmall">0</td>
+            <td class="monitorText">:</td>
+            <td id = "scoreCPU" class="monitorSmall">0</td>
+          </tr>
+          <tr>
+            <td id = "txtPlayer">-</td>
+            <td class="monitorText"></td>
+            <td id = "txtCPU">-</td>
+          </tr>
+        </table> 
+      </div>
+         </div>
+
+
+      <div class="middle">
+        <div class="monitor"></div>
+      </div>
+
+      <div class="middle">
+        <button class="bigButton" id = "acceptbutton">Accept</button>
+        <button class="bigButton" id = "declinebutton">Decline</button>
+        <button class="bigButton" id = "naturebutton">Nature</button>
+        <button class="bigButton" id = "randombutton">Random</button>
+      </div>
+
+      <div class="middle">
+
+        <select>
+          <option>Options</option>
+          <option id="reset"> Reset</option>
+          <option id="playerButton">Player</option>
+          <option id="highscore">Highscore</option>  
+        </select>
+             
+      </div>
+
+
+
+
+
+
+
+
+    
+      <!--
+      <div class="middle">
+      <a href="#">Reset</a>
+      <p>Highscore</p>
+      <p>Profile</p>
+      </div>
+--> 
+      <footer> created by CodePec</footer>
+
+
+    </body>
+</html>
