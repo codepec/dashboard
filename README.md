@@ -2,4 +2,4 @@
 another rock scissors paper game
 
 
-https://codepec.github.io/firewaternature/
+https://codepec.github.io/dashboard/
