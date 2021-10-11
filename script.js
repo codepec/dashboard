@@ -343,7 +343,9 @@ new Chart("myChart", {
       fill: true
     },
     { 
-      data: [297	,	389	,	510	,	545	,	680	,	701	,	657	,	626	,	563	,	698	,	754	,	833	,	812	,	717	,	695	,	762	,	642	,	622	,	660	,	652
+      data: [297	,	389	,	510	,	545	,	680	,	701	,	657	,	626	,	563	,	698	,	754	,	833	,	812	,	717	,	695	,	762	,	642	,	622	,	660	,	652, 545	,	680	,	701	,	657	,	626	,	563	,	698	,	754	,	833	,	812	,	717	,	695	,	762	,	642	,	622	,	660	,	652, 	701	,	657	,	626	,	698	,	754	,	833	,	812	,	717	,	695	,	762	,	642	,	622	,	660	,	652, 833	,	812	,	717	,	695	,	762	,	642	,	622	,	660	,	652, 833	,	812	,	717	,	695	,	762	,	642	,	622	,	660	,	652
+
+
 
       ],
       borderColor: "red",
@@ -356,3 +358,49 @@ new Chart("myChart", {
   }
 });
 
+
+firstRegister.style.cssText = "display:block;";
+secondRegister.style.cssText = "display:none;";
+thirdRegister.style.cssText = "display:none;";
+fourthRegister.style.cssText = "display:none;";
+
+firstRegisterNavbar.addEventListener("click", hideSecondThirdFourthRegister);
+
+  function hideSecondThirdFourthRegister() {
+
+    firstRegister.style.cssText = "display:block;";
+    secondRegister.style.cssText = "display:none;" ;
+    thirdRegister.style.cssText = "display:none;" ;
+    fourthRegister.style.cssText = "display:none;" ;
+
+  }
+
+secondRegisterNavbar.addEventListener("click", hideFirstThirdFourthRegister);
+
+  function hideFirstThirdFourthRegister() {
+
+    firstRegister.style.cssText = "display:none;";
+    secondRegister.style.cssText = "display:block;" ;
+    thirdRegister.style.cssText = "display:none;" ;
+    fourthRegister.style.cssText = "display:none;" ;
+  }
+
+thirdRegisterNavbar.addEventListener("click", hideFirstSecondFourthRegister);
+
+  function hideFirstSecondFourthRegister() {
+
+    firstRegister.style.cssText = "display:none;";
+    secondRegister.style.cssText = "display:none;" ;
+    thirdRegister.style.cssText = "display:block;" ;
+    fourthRegister.style.cssText = "display:none;" ;
+  }
+
+  fourthRegisterNavbar.addEventListener("click", hideFirstSecondThirdRegister);
+
+  function hideFirstSecondThirdRegister() {
+
+    firstRegister.style.cssText = "display:none;";
+    secondRegister.style.cssText = "display:none;" ;
+    thirdRegister.style.cssText = "display:none;" ;
+    fourthRegister.style.cssText = "display:block;" ;
+  }

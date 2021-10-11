@@ -28,10 +28,10 @@
 
 
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="#" id="firstRegisterNavbar">Home</a></li>
+        <li><a href="#" id="secondRegisterNavbar">RadonChart</a></li>
+        <li><a href="#" id="thirdRegisterNavbar">Contact</a></li>
+        <li><a href="#" id="fourthRegisterNavbar">About</a></li>
       </ul> 
 
 
@@ -44,16 +44,43 @@
       <p>some charts and tables</p>
       </div>
 
+
+    <div id="firstRegister">
+   
+      <div class="middle">
+        
+        <div class="box">
+          
+          <p class="blackP">Hello my friends,<br><br>i proudly present you my <br>new dashboard for radon measurements.
+            <br><br>Have fun and feel free to contact me.<br>Sincerely your creator.
+          </p>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="secondRegister">
       <div class="middle">
         <div class="box">
 
           <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
       
         </div>
       </div>
 
-      
+
+      <div class="middle">
+        <button class="bigButton" id = "acceptbutton">Accept</button>
+        <button class="bigButton" id = "declinebutton">Decline</button>
+        <button class="bigButton" id = "naturebutton">Nature</button>
+        <button class="bigButton" id = "randombutton">Random</button>
+      </div>
+
+    </div>
+
+    <div id="thirdRegister">
       <div class="middle">
         <div class="box">
           <table>
@@ -79,44 +106,12 @@
            
           </table>
 
+
+
+
+
       
         </div>
-      </div>
-
-     
-
-      <div class="middle">
-       <div class="box">
-        <table>
-          <tr>
-            <td class="monitorText">Player</td>
-            <td></td>
-            <td class="monitorText">Computer</td>
-          </tr>
-          <tr>
-            <td id = "scorePlayer" class="monitorSmall">0</td>
-            <td class="monitorText">:</td>
-            <td id = "scoreCPU" class="monitorSmall">0</td>
-          </tr>
-          <tr>
-            <td id = "txtPlayer">-</td>
-            <td class="monitorText"></td>
-            <td id = "txtCPU">-</td>
-          </tr>
-        </table> 
-      </div>
-         </div>
-
-
-      <div class="middle">
-        <div class="monitor"></div>
-      </div>
-
-      <div class="middle">
-        <button class="bigButton" id = "acceptbutton">Accept</button>
-        <button class="bigButton" id = "declinebutton">Decline</button>
-        <button class="bigButton" id = "naturebutton">Nature</button>
-        <button class="bigButton" id = "randombutton">Random</button>
       </div>
 
       <div class="middle">
@@ -129,6 +124,41 @@
         </select>
              
       </div>
+
+    </div>
+     
+    <div id="fourthRegister">
+        <div class="middle">
+          <div class="box">
+            <table>
+              <tr>
+                <td class="monitorText">Player</td>
+                <td></td>
+                <td class="monitorText">Computer</td>
+              </tr>
+              <tr>
+                <td id = "scorePlayer" class="monitorSmall">0</td>
+                <td class="monitorText">:</td>
+                <td id = "scoreCPU" class="monitorSmall">0</td>
+              </tr>
+              <tr>
+                <td id = "txtPlayer">-</td>
+                <td class="monitorText"></td>
+                <td id = "txtCPU">-</td>
+              </tr>
+            </table> 
+          </div>
+        </div>
+
+
+        <div class="middle">
+          <div class="monitor"></div>
+        </div>
+
+    </div>
+
+
+
 
 
 
