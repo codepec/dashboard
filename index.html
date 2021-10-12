@@ -1,191 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <title>dashboard</title>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
- 
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
 
-    <meta name="description" content="">
+    <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <script type="text/javascript" src="script.js" defer></script>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="manifest" href="manifest.json">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="images/icons/icon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="images/icons/icon-128x128.png" sizes="128x128">
-    
-    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icons/icon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icons/icon-128x128.png"
+      sizes="128x128"
+    />
+
+    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
   </head>
 
-    <body>
-
-      <div id="wrapper">
-
-        <div id="header">
-          
-          <nav>
-            <ul>
-              <li id="iconR"><a href="#">RadonDash</a></li>
-      
-              <li><a href="#" id="fourthRegisterNavbar">About</a></li>
-              <li><a href="#" id="thirdRegisterNavbar">Contact</a></li>
-              <li><a href="#" id="secondRegisterNavbar">Charts</a></li>
-              <li><a href="#" id="firstRegisterNavbar">Dashboard</a></li>
-              
-            </ul> 
-          </nav>
-
-        </div>
-
-
-
-        <div id="content">
-
-      <div class="middle">
-        <h1>Radon-Dashboard</h1> 
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <nav>
+          <ul>
+            <li id="iconR"><a href="#">RadonDash</a></li>
+            <li><a href="#" id="fourthRegisterNavbar">About</a></li>
+            <li><a href="#" id="thirdRegisterNavbar">Contact</a></li>
+            <li><a href="#" id="secondRegisterNavbar">Charts</a></li>
+            <li><a href="#" id="firstRegisterNavbar">Dashboard</a></li>
+          </ul>
+        </nav>
       </div>
 
-      <div class="middle">
-      <p>some charts and tables</p>
-      </div>
-
-
-    <div id="firstRegister">
-   
-      <div class="middle">
-        
-        <div class="box">
-          
-          <p class="blackP">Hello my friends,<br><br>i proudly present you my <br>new dashboard for radon measurements.
-            <br><br>Have fun and feel free to contact me.<br>Sincerely your creator.
-          </p>
-
-
-        </div>
-
-      </div>
-    </div>
-
-    <div id="secondRegister">
-      <div class="middle">
-        <div class="box">
-
-          <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-      
-        </div>
-      </div>
-
-
-      <div class="middle">
-        <button class="bigButton" id = "acceptbutton">Accept</button>
-        <button class="bigButton" id = "declinebutton">Decline</button>
-        <button class="bigButton" id = "naturebutton">Nature</button>
-        <button class="bigButton" id = "randombutton">Random</button>
-      </div>
-
-    </div>
-
-    <div id="thirdRegister">
-      <div class="middle">
-        <div class="box">
-          <table>
-            <tr>
-              <td>Project:</td>
-              <td id="projectName">Project 1</td>
-              <td>Projectnumber:</td>
-              <td id="projectNumber">1000</td>
-              
-            </tr>
-            <tr>
-              <td>Date:</td>
-              <td id="date">5.10.2021</td>
-              <td>Address:</td>
-              <td id="address">97 Taneytown Road, Gettysburg, PA 17325-2804</td>
-            </tr>
-            <tr>
-              <td>E-Mail:</td>
-              <td id="eMail">bellair@bellair.com</td>
-              <td>Phone:</td>
-              <td id="phone">045 / 152 55 15</td>
-            </tr>
-           
-          </table>
-
-
-
-
-
-      
-        </div>
-      </div>
-
-      <div class="middle">
-
-        <select>
-          <option>Options</option>
-          <option id="reset"> Reset</option>
-          <option id="playerButton">Player</option>
-          <option id="highscore">Highscore</option>  
-        </select>
-             
-      </div>
-
-    </div>
-     
-    <div id="fourthRegister">
+      <div id="content">
         <div class="middle">
-          <div class="box">
-            <table>
-              <tr>
-                <td class="monitorText">Player</td>
-                <td></td>
-                <td class="monitorText">Computer</td>
-              </tr>
-              <tr>
-                <td id = "scorePlayer" class="monitorSmall">0</td>
-                <td class="monitorText">:</td>
-                <td id = "scoreCPU" class="monitorSmall">0</td>
-              </tr>
-              <tr>
-                <td id = "txtPlayer">-</td>
-                <td class="monitorText"></td>
-                <td id = "txtCPU">-</td>
-              </tr>
-            </table> 
+          <h1>Radon-Dashboard</h1>
+        </div>
+
+        <div class="middle">
+          <p>some charts and tables</p>
+        </div>
+
+        <div id="firstRegister">
+          <div class="middle">
+            <div class="box">
+              <p class="blackP">
+                Hello my friends,<br /><br />i proudly present you my <br />new
+                dashboard for radon measurements. <br /><br />Have fun and feel
+                free to contact me.<br />Sincerely your creator.
+              </p>
+            </div>
           </div>
         </div>
 
+        <div id="secondRegister">
+          <div class="middle">
+            <div class="box">
+              <canvas
+                id="myChart"
+                style="width: 100%; max-width: 600px"
+              ></canvas>
+            </div>
+          </div>
 
-        <div class="middle">
-          <div class="monitor"></div>
+          <div class="middle">
+            <button class="bigButton" id="acceptbutton">Accept</button>
+            <button class="bigButton" id="declinebutton">Decline</button>
+            <button class="bigButton" id="naturebutton">Nature</button>
+            <button class="bigButton" id="randombutton">Random</button>
+          </div>
         </div>
 
+        <div id="thirdRegister">
+          <div class="middle">
+            <div class="box">
+              <table>
+                <tr>
+                  <td>Project:</td>
+                  <td id="projectName">Project 1</td>
+                  <td>Projectnumber:</td>
+                  <td id="projectNumber">1000</td>
+                </tr>
+                <tr>
+                  <td>Date:</td>
+                  <td id="date">5.10.2021</td>
+                  <td>Address:</td>
+                  <td id="address">
+                    97 Taneytown Road, Gettysburg, PA 17325-2804
+                  </td>
+                </tr>
+                <tr>
+                  <td>E-Mail:</td>
+                  <td id="eMail">bellair@bellair.com</td>
+                  <td>Phone:</td>
+                  <td id="phone">045 / 152 55 15</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="middle">
+            <select>
+              <option>Options</option>
+              <option id="reset">Reset</option>
+              <option id="playerButton">Player</option>
+              <option id="highscore">Highscore</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="fourthRegister">
+          
+            <div class="panel">
+              <h2>Paris</h2>
+              <p>sdafsahf sdkfh sdkfhsdaf jksdfhkherngcnb.</p>
+            </div>
+         
+         
+            <div class="panel">
+              <h2>London</h2>
+              <p>sdafsahf sdkfh sdkfhsdaf jksdfhkherngcnb.</p>
+            </div>
+         
+          
+            <div class="panel">
+              <h2>Zurich</h2>
+              <p>sdafsahf sdkfh sdkfhsdaf jksdfhkherngcnb.</p>
+            </div>
+          
+
+          <div class="middle">
+            <div class="box">
+              <table>
+                <tr>
+                  <td class="monitorText">Player</td>
+                  <td></td>
+                  <td class="monitorText">Computer</td>
+                </tr>
+                <tr>
+                  <td id="scorePlayer" class="monitorSmall">0</td>
+                  <td class="monitorText">:</td>
+                  <td id="scoreCPU" class="monitorSmall">0</td>
+                </tr>
+                <tr>
+                  <td id="txtPlayer">-</td>
+                  <td class="monitorText"></td>
+                  <td id="txtCPU">-</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="middle">
+            <div class="monitor"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="radialButton"></div>
+
+      <div id="footer">
+        <footer>created by CodePec</footer>
+      </div>
     </div>
-
-
-
-
-
-
-
-  </div>
-
-
-
-  <div id="footer">
-
-      <footer> created by CodePec</footer>
-
-  </div>
-
-</div>
-
-    </body>
+  </body>
 </html>
