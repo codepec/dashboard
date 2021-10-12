@@ -137,8 +137,6 @@ button:hover {
 }
 
 
-
-
 footer{
     
     margin-top: 30px;
@@ -207,5 +205,7 @@ ul {
 
 #iconR {
     @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+    background-color: #111;
+   
 }
 
