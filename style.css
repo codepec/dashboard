@@ -2,14 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 html,
 body {
-  background-color: rgb(71, 71, 71);
+  background-color: rgb(131, 131, 131);
 
   margin: 0;
   padding: 0;
 
   font-family: "Raleway", sans-serif;
+  font-weight: 400;
 
 }
 
@@ -20,8 +23,9 @@ body {
 h1 {
   margin: 0;
   padding: 0;
-  color: rgb(196, 89, 89);
+  color: rgb(109, 78, 134);              /*red rgb(196, 89, 89);*/
   font-size: 50px;
+  text-shadow: 2px 2px 1px rgb(46, 46, 46) ;
   
 }
 
@@ -123,9 +127,9 @@ button {
   cursor: pointer;
   background: linear-gradient(
     to bottom,
-    #66322e8f 0%,
-    #dbc0bd 50%,
-    #66322e8f 100%
+    #562e668f 0%,
+    #d5bddb 50%,
+    #562e668f 100%
   );
   color: black;
 }
@@ -138,9 +142,9 @@ button:hover {
   box-shadow: 0px 0px 5px 0px;
   background: linear-gradient(
     to bottom,
-    #ce625a8f 0%,
-    #dbc0bd 50%,
-    #ce625a8f 100%
+   #562e66 0%,
+    #d5bddb 50%,
+    #562e66 100%
   );
 }
 
@@ -152,7 +156,7 @@ button:hover {
   color: rgb(255, 207, 49);
   text-shadow: 2px 2px 5px rgba(255, 207, 49, 0.623);
   left: 0;
-  bottom: 0;
+  border-bottom: 0;
   width: 100%;
   height: 60px;
 }
@@ -176,7 +180,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(196, 89, 89);
+  background-color: rgb(105, 105, 105);              /*red rgb(196, 89, 89);*/
   box-shadow: 0px 2px 2px 0px;
   height: 60px;
   
@@ -191,46 +195,59 @@ li {
 li a {
   text-decoration: none;
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
   
+  text-align: center;
+ 
+  padding: 15px 20px;
+  color: rgb(91, 0, 165);
+
   
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: rgb(165, 165, 165);
+  box-shadow: 0px 0px 5px 2px #111;
+  border-radius: 45px 45px 45px 45px;
+  color:white;
+  
   
 }
 
 li:first-child {
   float: left;
+  color: rgb(91, 0, 165);
+  
+}
+li:first-child a:hover {
+  float: left;
+  color: rgb(91, 0, 165);
+  box-shadow: none;
+  
 }
 
 .blackP {
   color: black;
 }
 
-#iconR {
-  background-color: #111;
+.rightNav {
+  margin-top: 5px;
+  
+
+}
+
+.leftNav {
+  background-color: rgb(165, 165, 165);
+  box-shadow: 0px 0px 5px 2px #111;
   font-size: 30px;
+  border-radius: 0px 45px 45px 0px;
+  
+  
+
 }
 
 
 
-.radialButton {
-    position: absolute;
-    border-radius: 50%;
-    -webkit-transform: translate(50%, 50%);
-            transform: translate(50%, 50%);
-    width: 100px;
-    height: 100px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    background: #ddd;
-    margin: 20px;
-  }
+
 
 
   .panel{
@@ -238,9 +255,12 @@ li:first-child {
     align-items: left;
     justify-content: left;
     text-align: left;
-    background-color: rgba(91, 190, 207, 0.5);
-    border-left: solid 5px rgba(38, 78, 85, 0.959);
-    border-right: solid 5px rgba(38, 78, 85, 0.959);
+    background-color: rgba(124, 192, 223, 0.678);
+    border-left: solid 5px rgba(10, 10, 10, 0.9);
+    border-right: solid 5px rgba(10, 10, 10, 0.9);
+    border-top: solid 1px rgba(10, 10, 10, 0.4);
+    border-bottom: solid 1px rgba(10, 10, 10, 0.4);
+    
     margin: 10px;
     
 
