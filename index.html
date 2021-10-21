@@ -43,6 +43,9 @@
     <div id="wrapper">
       <div id="header">
         <nav>
+        
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
             <li class="leftNav"><a href="#">RadonDash</a></li>
             <li class="rightNav"><a href="#" id="fourthRegisterNavbar">About</a></li>
@@ -50,8 +53,14 @@
             <li class="rightNav"><a href="#" id="secondRegisterNavbar">Charts</a></li>
             <li class="rightNav"><a href="#" id="firstRegisterNavbar">Dashboard</a></li>
           </ul>
-        </nav>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+
+      </nav>
       </div>
+
+
+      
 
       <div id="content">
         <div class="middle">
@@ -164,5 +173,24 @@
         <footer>created by CodePec</footer>
       </div>
     </div>
+
+
+    <script>
+
+      let navLinks = document.getElementById("navLinks");
+          
+          function showMenu(){
+            navLinks.style.right = "0";				
+          }
+          
+          function hideMenu(){
+            navLinks.style.right = "-200px";				
+          }
+      
+      </script>
+
   </body>
+
+
+
 </html>
