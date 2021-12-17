@@ -1,56 +1,101 @@
 
+const myChartObject = document.getElementById('myChart');
 
-var xValues = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-  23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
-  42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
-  61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79,
-  80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98,
-  99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114,
-  115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129,
-  130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144,
-  145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159,
-  160, 161, 162, 163,
+
+const data = [
+        {x: 'Jan', bathroom: 73, kitchen: 62, basement: 142, laundry:843}, {x: 'Feb', bathroom: 68, kitchen: 55, basement: 58, laundry:850},
+        {x: 'Mar', bathroom: 57, kitchen: 48, basement: 68, laundry:558}, {x: 'Apr', bathroom: 48, kitchen: 67, basement: 89, laundry:480},
+        {x: 'May', bathroom: 48, kitchen: 45, basement: 101, laundry:425}, {x: 'Jun', bathroom: 51, kitchen: 58, basement: 98, laundry:680},
+        {x: 'Jul', bathroom: 55, kitchen: 46, basement: 67, laundry:648}, {x: 'Aug', bathroom: 58, kitchen: 55, basement: 82, laundry:740},
+        {x: 'Sep', bathroom: 85, kitchen: 55, basement: 61, laundry:488}, {x: 'Oct', bathroom: 120, kitchen: 81, basement: 250, laundry:840},
+        {x: 'Nov', bathroom: 68, kitchen: 64, basement: 120, laundry:555}, {x: 'Dec', bathroom: 158, kitchen: 45, basement: 100, laundry:640},
 ];
 
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [
-      {
-        data: [
-          41, 31, 30, 43, 65, 50, 43, 47, 36, 56, 25, 37, 33, 21, 30, 24, 30,
-          18, 24, 17, 25, 25, 34, 25, 25, 28, 24, 27, 17, 21, 17, 15, 18, 24,
-          21, 14, 14, 15, 11, 18, 18, 17, 21, 27, 17, 12, 75, 81, 47, 39, 27,
-          31, 33, 47, 55, 43, 46, 47, 50, 39, 33, 30, 46, 36, 36, 41, 21, 30,
-          31, 52, 39, 34, 46, 60, 52, 56, 62, 71, 71, 71, 79, 81, 56, 69, 69,
-          46, 28, 33, 47, 36, 28, 14, 30, 25, 39, 27, 21, 47, 46, 52, 52, 47,
-          75, 60, 52, 50, 55, 69, 55, 46, 44, 63, 63, 91, 76, 65, 47, 39, 41,
-          30, 52, 53, 49, 66, 41, 46, 47, 44, 50, 52, 41, 47, 53, 56, 41, 56,
-          47, 49, 50, 47, 47, 43,
-        ],
-        borderColor: "black",
-        fill: true,
-       
-      },
-      {
-        data: [
-          297, 389, 510, 545, 680, 701, 657, 626, 563, 698, 754, 833, 812, 717,
-          695, 762, 642, 622, 660, 652, 545, 680, 701, 657, 626, 563, 698, 754,
-          833, 812, 717, 695, 762, 642, 622, 660, 652, 701, 657, 626, 698, 754,
-          833, 812, 717, 695, 762, 642, 622, 660, 652, 833, 812, 717, 695, 762,
-          642, 622, 660, 652, 833, 812, 717, 695, 762, 642, 622, 660, 652,
-        ],
-        borderColor: "lime",
-        fill: true,
-      },
-    ],
-  },
-  options: {
-    legend: { display: false },
-  },
+//Bq/m³
+
+const cfg = {
+    type: 'bar',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+            label: 'bathroom1',
+            borderColor:'black',
+            backgroundColor:'black',
+            data: data,
+            parsing: {
+                yAxisKey: 'bathroom'
+            }
+        }, {
+            label: 'kitchen1',
+            borderColor:'yellow',
+            backgroundColor:'yellow',
+            data: data,
+            parsing: {
+                yAxisKey: 'kitchen'
+            }
+        }, {
+            label: 'basement1',
+            borderColor:'green',
+            backgroundColor:'green',
+            data: data,
+            parsing: {
+                yAxisKey: 'basement'
+            }
+        }, {
+            label: 'laundry1',
+            borderColor:'red',
+            backgroundColor:'red',
+            data: data,
+           
+            parsing: {
+                
+                yAxisKey: 'laundry'
+            }
+        }]
+    },
+};
+
+
+
+
+let chart = new Chart(myChartObject, cfg, {
+  
+
+
 });
+
+
+ 
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 firstRegister.style.cssText = "display:block;";
 secondRegister.style.cssText = "display:none;";
