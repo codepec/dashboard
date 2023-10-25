@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Radon-Messwerte</title>
+    <!-- Füge Chart.js hinzu -->
+
+    <script src="./node_modules/chart.js/dist/chart.umd.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center; font-family: Arial">Radon-Messwerte</h1>
+
+    <div style="text-align: center; font-family: Arial" id="richtwert">
+        Richtwert: 300 Bq/m³ | Mittelwert: 145 Bq/m³ | Max: 320 Bq/m³ | Min: 12 Bq/m³ | Anzahl Messungen: 96 | Richtwertüberschreitung: 1
+    </div>
+
+    <div style="width: 80%; margin: 0 auto;">
+        <canvas id="radonChart"></canvas>
+    </div>
+
+
+
+    
+    <script>
+        // Die Daten aus deiner Liste
+        var messpunkte = [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+            21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+            31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+            41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+            51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+            61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+            71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+            81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+            91, 92, 93, 94, 95, 96
+        ];
+
+        var radonWerte = [
+            147, 136, 195, 140, 159, 166, 140, 163, 146, 150,
+            137, 140, 126, 128, 140, 154, 160, 150, 154, 162,
+            136, 137, 154, 131, 91, 84, 102, 101, 84, 98,
+            124, 85, 134, 130, 123, 163, 183, 183, 190, 200,
+            189, 189, 219, 200, 131, 92, 44, 31, 41, 30,
+            24, 15, 30, 28, 12, 34, 56, 69, 102, 72, 78,
+            102, 117, 144, 131, 137, 163, 134, 172, 180, 183,
+            196, 230, 196, 202, 179, 223, 250, 220, 216, 210,
+            230, 256, 263, 260, 287, 240, 273, 300, 280, 320,
+            108, 43, 33, 60, 75
+        ];
+
+         // Erstelle ein HTML-Canvas-Element für den Chart
+         var canvas = document.getElementById('radonChart').getContext('2d');
+
+         // Erstelle den Balkendiagramm-Chart
+         var chart = new Chart(canvas, {
+             type: 'bar',
+             data: {
+                 labels: messpunkte,
+                 datasets: [{
+                     label: 'Radon in Bq/m³',
+                     data: radonWerte,
+                     backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                     borderColor: 'rgba(75, 192, 192, 1)',
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true,
+                         suggestedMax: 400 // Damit der Chart genügend Platz für die Linie bei 300 Bq/m³ hat
+                     }
+                 },
+                 // Verwende die onRender-Funktion, um die Linie hinzuzufügen
+                 plugins: {
+                     legend: true // Verstecke die Legende
+                 },
+                 onRender: function() {
+                    var chartInstance = this.chart;
+                    var ctx = chartInstance.ctx;
+                    var xaxis = chartInstance.scales['x'];
+                    var yaxis = chartInstance.scales['y'];
+                    var lineWidth = 2;
+                    var lineColor = 'red';
+            
+                    // Zeichne die Linie bei 300 Bq/m³
+                    var yValue = yaxis.getPixelForValue(300);
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(xaxis.left, yValue);
+                    ctx.lineTo(xaxis.right, yValue);
+                    ctx.lineWidth = lineWidth;
+                    ctx.strokeStyle = lineColor;
+                    ctx.stroke();
+                    ctx.restore();
+            
+                    // Füge den Richtwert hinzu
+                    ctx.font = '12px Arial'; // Schriftgröße und -art festlegen
+                    ctx.fillStyle = lineColor;
+                    ctx.fillText('Richtwert 300 Bq/m³', xaxis.right - 100, yValue - 10);
+                }
+            }
+         });
+     </script>
+ </body>
+ </html>
