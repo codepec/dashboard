@@ -9,98 +9,166 @@
 <body>
     <h1 style="text-align: center; font-family: Arial">Radon-Messwerte</h1>
 
-    <div style="text-align: center; font-family: Arial" id="richtwert">
-        Richtwert: 300 Bq/m³ | Mittelwert: 145 Bq/m³ | Max: 320 Bq/m³ | Min: 12 Bq/m³ | Anzahl Messungen: 96 | Richtwertüberschreitung: 1
+
+
+ 
+
+
+     <!-- Radio-Buttons zur Auswahl der Messwerte -->
+     <div>
+        <label>
+            <input type="radio" name="messwerte" value="alte" checked> Alte Messwerte
+        </label>
+        <label>
+            <input type="radio" name="messwerte" value="neue"> Neue Messwerte
+        </label>
     </div>
 
     <div style="width: 80%; margin: 0 auto;">
         <canvas id="radonChart"></canvas>
     </div>
 
+    <div style="text-align: center; font-family: Arial" id="statistik">
+        Richtwert: <span id="richtwert">300 Bq/m³</span> | Mittelwert: <span id="mittelwert">145 Bq/m³</span> | Max: <span id="max">320 Bq/m³</span> | Min: <span id="min">12 Bq/m³</span> | Anzahl Messungen: <span id="anzahlMessungen">96</span> | Richtwertüberschreitung: <span id="richtwertUberschreitung">1</span>
+    </div>
+
+
 
 
     
     <script>
         // Die Daten aus deiner Liste
-        var messpunkte = [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-            21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-            31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-            41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-            51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
-            61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
-            71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
-            81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
-            91, 92, 93, 94, 95, 96
+
+        var alteMesspunkte = [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+        11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+        21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+        31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+        41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+        51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+        61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+        71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+        81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+        91, 92, 93, 94, 95, 96 ];
+        var alteRadonWerte = [
+        147, 136, 195, 140, 159, 166, 140, 163, 146, 150,
+        137, 140, 126, 128, 140, 154, 160, 150, 154, 162,
+        136, 137, 154, 131, 91, 84, 102, 101, 84, 98,
+        124, 85, 134, 130, 123, 163, 183, 183, 190, 200,
+        189, 189, 219, 200, 131, 92, 44, 31, 41, 30,
+        24, 15, 30, 28, 12, 34, 56, 69, 102, 72, 78,
+        102, 117, 144, 131, 137, 163, 134, 172, 180, 183,
+        196, 230, 196, 202, 179, 223, 250, 220, 216, 210,
+        230, 256, 263, 260, 287, 240, 273, 300, 280, 320,
+        108, 43, 33, 60, 75
+        ];
+        var neueMesspunkte = [ 97, 98, 99, 100,
+        101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
+        111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
+        121, 122, 123, 124, 125, 126, 127, 128, 129, 130,
+        131, 132, 133, 134, 135, 136, 137, 138, 139, 140,
+        141, 142, 143, 144, 145, 146, 147, 148, 149, 150,
+        151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
+        161, 162, 163, 164, 165, 166, 167, 168, 169, 170,
+        171, 172, 173, 174, 175, 176, 177, 178, 179, 180,
+        181, 182, 183, 184, 185, 186, 187, 188, 189, 190,
+        191, 192, 193, 194, 195, 196, 197, 198, 199, 200,
+        201, 202, 203, 204, 205, 206, 207, 208, 209, 210,
+        211, 212, 213, 214, 215, 216, 217, 218, 219, 220,
+        221, 222, 223, 224, 225, 226, 227, 228, 229, 230,
+        231, 232, 233, 234, 235, 236, 237, 238
+        ];
+        var neueRadonWerte = [ 186, 177, 222, 199, 177,
+        182, 209, 163, 166, 126, 172, 176, 166, 166, 139,
+        153, 213, 196, 176, 163, 163, 150, 140, 156, 136,
+        203, 139, 162, 143, 137, 134, 137, 180, 167, 134,
+        160, 146, 137, 154, 190, 163, 130, 156, 136, 169,
+        172, 173, 159, 154, 137, 136, 147, 157, 137, 137,
+        139, 156, 160, 134, 160, 186, 169, 147, 170, 147,
+        120, 144, 102, 94, 49, 34, 37, 33, 24, 24, 24,
+        30, 33, 28, 37, 47, 43, 52, 44, 53, 50, 62, 49,
+        36, 41, 44, 36, 18, 20, 21, 24, 24, 9, 12, 11,
+        18, 21, 28, 24, 24, 37, 50, 47, 39, 50, 44, 37,
+        37, 71, 46, 27, 14, 9, 27, 36, 30, 33, 34, 52,
+        33, 34, 31, 28, 47, 31, 39, 36, 50, 55, 62, 62,
+        65, 55, 59, 34, 47, 18
         ];
 
-        var radonWerte = [
-            147, 136, 195, 140, 159, 166, 140, 163, 146, 150,
-            137, 140, 126, 128, 140, 154, 160, 150, 154, 162,
-            136, 137, 154, 131, 91, 84, 102, 101, 84, 98,
-            124, 85, 134, 130, 123, 163, 183, 183, 190, 200,
-            189, 189, 219, 200, 131, 92, 44, 31, 41, 30,
-            24, 15, 30, 28, 12, 34, 56, 69, 102, 72, 78,
-            102, 117, 144, 131, 137, 163, 134, 172, 180, 183,
-            196, 230, 196, 202, 179, 223, 250, 220, 216, 210,
-            230, 256, 263, 260, 287, 240, 273, 300, 280, 320,
-            108, 43, 33, 60, 75
-        ];
 
-         // Erstelle ein HTML-Canvas-Element für den Chart
-         var canvas = document.getElementById('radonChart').getContext('2d');
 
-         // Erstelle den Balkendiagramm-Chart
-         var chart = new Chart(canvas, {
-             type: 'bar',
-             data: {
-                 labels: messpunkte,
-                 datasets: [{
-                     label: 'Radon in Bq/m³',
-                     data: radonWerte,
-                     backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                     borderColor: 'rgba(75, 192, 192, 1)',
-                     borderWidth: 1
-                 }]
-             },
-             options: {
-                 scales: {
-                     y: {
-                         beginAtZero: true,
-                         suggestedMax: 400 // Damit der Chart genügend Platz für die Linie bei 300 Bq/m³ hat
-                     }
-                 },
-                 // Verwende die onRender-Funktion, um die Linie hinzuzufügen
-                 plugins: {
-                     legend: true // Verstecke die Legende
-                 },
-                 onRender: function() {
-                    var chartInstance = this.chart;
-                    var ctx = chartInstance.ctx;
-                    var xaxis = chartInstance.scales['x'];
-                    var yaxis = chartInstance.scales['y'];
-                    var lineWidth = 2;
-                    var lineColor = 'red';
-            
-                    // Zeichne die Linie bei 300 Bq/m³
-                    var yValue = yaxis.getPixelForValue(300);
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.moveTo(xaxis.left, yValue);
-                    ctx.lineTo(xaxis.right, yValue);
-                    ctx.lineWidth = lineWidth;
-                    ctx.strokeStyle = lineColor;
-                    ctx.stroke();
-                    ctx.restore();
-            
-                    // Füge den Richtwert hinzu
-                    ctx.font = '12px Arial'; // Schriftgröße und -art festlegen
-                    ctx.fillStyle = lineColor;
-                    ctx.fillText('Richtwert 300 Bq/m³', xaxis.right - 100, yValue - 10);
-                }
+        // Funktion zum Aktualisieren des Charts basierend auf der Auswahl
+        function updateChart() {
+            var selectedValue = document.querySelector('input[name="messwerte"]:checked').value;
+            var messpunkte, radonWerte;
+
+            if (selectedValue === "alte") {
+                messpunkte = alteMesspunkte;
+                radonWerte = alteRadonWerte;
+            } else {
+                messpunkte = neueMesspunkte;
+                radonWerte = neueRadonWerte;
             }
-         });
+
+            // Erstelle ein HTML-Canvas-Element für den Chart
+            var canvas = document.getElementById('radonChart').getContext('2d');
+
+            // Erstelle den Balkendiagramm-Chart
+            if (window.myChart) {
+                window.myChart.destroy();
+            }
+
+            window.myChart = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: messpunkte,
+                    datasets: [{
+                        label: 'Radon in Bq/m³',
+                        data: radonWerte,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 400
+                        }
+                    },
+                    plugins: {
+                        legend: false
+                    }
+                }
+            });
+        
+
+     // Berechne und aktualisiere die Statistik
+     var statistikElement = document.getElementById('statistik');
+     var mittelwertElement = document.getElementById('mittelwert');
+     var maxElement = document.getElementById('max');
+     var minElement = document.getElementById('min');
+     var anzahlMessungenElement = document.getElementById('anzahlMessungen');
+     var richtwertUberschreitungElement = document.getElementById('richtwertUberschreitung');
+
+     var mittelwert = radonWerte.reduce((a, b) => a + b) / radonWerte.length;
+     var max = Math.max(...radonWerte);
+     var min = Math.min(...radonWerte);
+     var anzahlMessungen = radonWerte.length;
+     var richtwertUberschreitung = radonWerte.filter(value => value > 300).length;
+
+     mittelwertElement.textContent = mittelwert.toFixed(2) + " Bq/m³";
+     maxElement.textContent = max + " Bq/m³";
+     minElement.textContent = min + " Bq/m³";
+     anzahlMessungenElement.textContent = anzahlMessungen;
+     richtwertUberschreitungElement.textContent = richtwertUberschreitung;
+        }
+
+        // Führe die Aktualisierung beim Laden der Seite und bei Änderungen der Auswahl durch
+        updateChart();
+        document.querySelectorAll('input[name="messwerte"]').forEach(function (radio) {
+            radio.addEventListener('change', updateChart);
+        });
      </script>
  </body>
  </html>
