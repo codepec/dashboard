@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Öl-Verbrauch</title>
+    <!-- Füge Chart.js hinzu -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-family: Arial">Öl-Verbrauch in l</h1>
+
+    <!-- Radio-Buttons zur Auswahl der Messreihen -->
+    <div>
+      <label>
+        <input type="radio" name="messreihe" value="Messreihe1" checked />
+        Messreihe 1
+      </label>
+      <label>
+
+    </div>
+
+    <div style="width: 80%; margin: 0 auto">
+      <canvas id="oilChart"></canvas>
+    </div>
+
+    <div style="text-align: center; font-family: Arial" id="statistik"></div>
+
+    <script>
+      // Die Daten aus deiner Liste
+      var messreihen = [
+        {
+          name: "Messreihe1",
+          messpunkte: [
+            2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+            2020, 2021, 2022, 2023,
+          ],
+          oilLevel: [
+            2426, 3696, 2703, 3586, 2985, 3036, 3160, 3116, 3232, 3116, 3130,
+            3132, 3019, 2623,
+          ],
+        },
+        {
+          name: "Messreihe2",
+          messpunkte: [],
+          oilLevel: [],
+        },
+        {
+          name: "Messreihe3",
+          messpunkte: [],
+          oilLevel: [],
+        },
+        {
+          name: "Messreihe4",
+          messpunkte: [],
+          oilLevel: [],
+        },
+        {
+          name: "Messreihe5",
+          messpunkte: [],
+          oilLevel: [],
+        },
+        {
+          name: "Messreihe6",
+          messpunkte: [],
+          oilLevel: [],
+        },
+        //
+      ];
+
+      // Funktion zum Aktualisieren des Charts und der Statistik
+      function updateChart() {
+        var selectedValue = document.querySelector(
+          'input[name="messreihe"]:checked'
+        ).value;
+        var messpunkte, oilLevel;
+
+        // Finde die ausgewählte Messreihe
+        var selectedMessreihe = messreihen.find(function (messreihe) {
+          return messreihe.name === selectedValue;
+        });
+
+        if (selectedMessreihe) {
+          messpunkte = selectedMessreihe.messpunkte;
+          oilLevel = selectedMessreihe.oilLevel;
+
+          // Erstelle ein HTML-Canvas-Element für den Chart
+          var canvas = document.getElementById("oilChart").getContext("2d");
+
+          // Erstelle den Balkendiagramm-Chart
+          if (window.myChart) {
+            window.myChart.destroy();
+          }
+
+          // Farben für die Balken festlegen (rot für Werte über 300, sonst grün)
+          var backgroundColor = oilLevel.map((value) =>
+            value > 300 ? "rgba(255, 99, 132, 0.2)" : "rgba(75, 192, 192, 0.2)"
+          );
+          var borderColor = oilLevel.map((value) =>
+            value > 300 ? "rgba(255, 99, 132, 1)" : "rgba(75, 192, 192, 1)"
+          );
+
+          window.myChart = new Chart(canvas, {
+            type: "bar",
+            data: {
+              labels: messpunkte,
+              datasets: [
+                {
+                  label: "Oil in l",
+                  data: oilLevel,
+                  backgroundColor: backgroundColor,
+                  borderColor: borderColor,
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  suggestedMax: 3500,
+                },
+              },
+              plugins: {
+                legend: false,
+              },
+            },
+          });
+        }
+      }
+
+      // Führe die Aktualisierung beim Laden der Seite und bei Änderungen der Auswahl durch
+      updateChart();
+      document
+        .querySelectorAll('input[name="messreihe"]')
+        .forEach(function (radio) {
+          radio.addEventListener("change", updateChart);
+        });
+    </script>
+  </body>
+</html>
